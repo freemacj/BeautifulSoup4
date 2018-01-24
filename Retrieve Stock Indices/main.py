@@ -14,10 +14,16 @@ soup = BeautifulSoup(page, 'html.parser')
 # Take out the <div> of name and get its value
 name_box = soup.find('h1', attrs={'class': 'name'})
 
-name = name_box.text.strip() # strip() is used to remove starting and trailing
+name = name_box.text.strip() # strip() is used to remove starting and trailing spaces
 print name
 
 # get the index price
 price_box = soup.find('div', attrs={'class': 'price'})
 price = price_box.text
 print price
+
+# get the "As of ... datetime"
+time_box = soup.find('div', attrs={'class': 'price-datetime'})
+time = time_box.text.strip() # strip() is used to remove starting and trailing spaces
+
+print time
